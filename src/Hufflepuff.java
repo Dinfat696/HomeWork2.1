@@ -9,49 +9,35 @@ public class Hufflepuff extends Hogwarts {
         this.faithfulness = faithfulness;
         this.honesty = honesty;
     }
-
     public int getIndustry() {
         return industry;
     }
-
-    public void setIndustry(int industry) {
-        this.industry = industry;
-    }
-
     public int getFaithfulness() {
         return faithfulness;
     }
-
-    public void setFaithfulness(int faithfulness) {
-        this.faithfulness = faithfulness;
-    }
-
     public int getHonesty() {
         return honesty;
     }
 
-    public void setHonesty(int honesty) {
-        this.honesty = honesty;
+    @Override
+    public String toString() {
+        return super.toString()+"Hufflepuff{" +
+                "industry=" + industry +
+                ", faithfulness=" + faithfulness +
+                ", honesty=" + honesty +
+                '}';
     }
-    public void studentInfo() {
-        super.studentInfo();
-        System.out.println(" Трудолюбие: " + industry + " Верность: " + faithfulness + " Честность: " + honesty);
 
+    private int getTotalPowerHu() {
+        return industry + faithfulness + honesty;
     }
-    public static void compareStudents(Hufflepuff stud1, Hufflepuff stud2, Hufflepuff stud3) {
-        int sum1 = stud1.getIndustry() + stud1.getFaithfulness() + stud1.getHonesty();
-        int sum2 = stud2.getIndustry() + stud2.getFaithfulness() + stud2.getHonesty();
-        int sum3 = stud3.getIndustry() + stud3.getFaithfulness() + stud3.getHonesty();
-
-        if (sum1 > sum2 && sum1 > sum3) {
-            System.out.println(stud1.getName() + " лучший Пуффендуец, чем остальные " + stud2.getName() + " " + " и " + stud3.getName());
-        } else if (sum2 > sum1 && sum2 > sum3) {
-            System.out.println(stud2.getName() + " лучший Пуффендуец, чем остальные " + stud1.getName() + " " + " и " + stud3.getName());
-        } else if (sum3 > sum1 && sum3 > sum2) {
-            System.out.println(stud3.getName() + " лучший Пуффендуец, чем остальные " + stud1.getName() + " " + " и " + stud2.getName());
-        } else {
-            System.out.println("Пуффендуйцы равны");
+    public  void compareStudentsHu(Hufflepuff other) {
+        if (this.getTotalPowerHu() > other.getTotalPowerHu()) {
+            System.out.println(this.getName() + " лучший Пуффендуец, чем " + other.getName());
+        } else if(this.getTotalPowerHu() < other.getTotalPowerHu()){
+            System.out.println( other.getName() + " лучший Пуффендуец, чем " + this.getName());
+        }else{
+            System.out.println(this.getName() +" " + other.getName() + " Пуффендуйцы равны ");
         }
     }
-
 }

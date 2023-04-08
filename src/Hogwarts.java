@@ -1,4 +1,4 @@
-public class Hogwarts {
+public abstract class Hogwarts {
 
     private String name;
     private int magicPower;
@@ -13,29 +13,21 @@ public class Hogwarts {
     public String getName() {
         return name;
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getMagicPower() {
         return magicPower;
     }
 
-    public void setMagicPower(int magicPower) {
-        this.magicPower = magicPower;
+    @Override
+    public String toString() {
+        return "Hogwarts{" +
+                "Имя='" + name + '\'' +
+                ", magicPower=" + magicPower +
+                ", transgressionDistance=" + transgressionDistance +
+                '}';
     }
 
     public int getTransgressionDistance() {
         return transgressionDistance;
-    }
-
-    public void setTransgressionDistance(int transgressionDistance) {
-        this.transgressionDistance = transgressionDistance;
-    }
-    public  void studentInfo() {
-        System.out.print("Имя студента- "+ name + ":" + " Сила магии: "+ magicPower + " Дальность трансгрессии: "+transgressionDistance);
-
 
     }
     public void compareMagicPower(Hogwarts otherStudent) {
